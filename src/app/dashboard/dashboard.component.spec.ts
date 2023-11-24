@@ -19,12 +19,11 @@ describe('DashboardComponent', () => {
     getHeroesSpy = heroService.getHeroes.and.returnValue(of(HEROES));
     TestBed
         .configureTestingModule({
-          declarations: [DashboardComponent, HeroSearchComponent],
-          imports: [RouterModule.forRoot([])],
-          providers: [
-            {provide: HeroService, useValue: heroService},
-          ]
-        })
+    imports: [RouterModule.forRoot([]), DashboardComponent, HeroSearchComponent],
+    providers: [
+        { provide: HeroService, useValue: heroService },
+    ]
+})
         .compileComponents();
 
     fixture = TestBed.createComponent(DashboardComponent);
