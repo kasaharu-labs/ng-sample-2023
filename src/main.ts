@@ -5,7 +5,7 @@ import {
 import { importProvidersFrom } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import routes from './app/ROUTE';
 import { AppComponent } from './app/app.component';
@@ -14,7 +14,7 @@ import { InMemoryDataService } from './app/in-memory-data.service';
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
     importProvidersFrom(
       BrowserModule,
       FormsModule,
